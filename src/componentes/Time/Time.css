@@ -1,11 +1,16 @@
 .lane{
     text-align: center;
     padding: 32px;
-    background-color: ;
+    position: relative;
+    background-blend-mode:screen;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 .lane h3{
     font-size: 32px;
     border-bottom: 4px solid ;
+    font-family: 'Prata';
     padding-bottom: 8px;
     display: inline-block;
 }
@@ -15,4 +20,10 @@
     justify-content: space-around;
     margin-top: 32px;
     flex-wrap: wrap;
+}
+
+.input-cor{
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }

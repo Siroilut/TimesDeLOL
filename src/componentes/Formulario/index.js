@@ -4,12 +4,13 @@ import ListaSuspensa from "../ListaSuspensa/index.js";
 import Botao from "../Botao/index.js";
 import { useState } from "react";
 
-const Formulario = (props) => {
+const Formulario = ({colaboradorCadastrado, lanes}) => {
  
   const [nome, setNome] = useState("");
   const [campeao, setCampeao] = useState("");
   const [imagem, setImagem] = useState("");
   const [lane, setLane] = useState("");
+
   const opcoesImagens = [
     { valor: '/imagens/campeoes/aatrox.jpg', label: 'Aatrox'},
     { valor: '/imagens/campeoes/ahri.jpg', label: 'ahri'},
@@ -24,11 +25,11 @@ const Formulario = (props) => {
 
   const salvar = (event) => {
     event.preventDefault();
-    props.colaboradorCadastrado({
+    colaboradorCadastrado({
       nome,
       campeao,
       imagem,
-      lane,
+      lane
     });
     setNome('')
     setCampeao('')
@@ -44,17 +45,17 @@ const Formulario = (props) => {
           label="Nome"
           placeholder="Digite seu NickName"
           valor={nome}
-          alterado={(valor) => setNome(valor)}
+          alterado={valor => setNome(valor)}
         />
         <CampoTexto
           obrigatorio={true}
           label="Campeão"
           placeholder="Digite o nome do seu Campeão"
           valor={campeao}
-          alterado={(valor) => setCampeao(valor)}
+          alterado={valor => setCampeao(valor)}
         />
         
-          <label>Selecione o nome do seu campeão </label>
+          <label>Selecione a imagem do seu campeão </label>
           <select
             required={true}
             value={imagem}
@@ -71,10 +72,10 @@ const Formulario = (props) => {
           </select>
         <ListaSuspensa
           obrigatorio={true}
-          label="Lane"
-          itens={props.lanes}
+          label="Lanes"
+          items={lanes}
           valor={lane}
-          alterado={(valor) => setLane(valor)}
+          alterado={valor => setLane(valor)}
         />
         <Botao texto="criar card" />
       </form>
